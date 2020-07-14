@@ -18,4 +18,4 @@ The iMAP python package is available for pip install(`pip install imap`). The fu
 
 ### Tutorials
 
-Tutorials and API reference are available in the <a href='tutorials'>. 
+Tutorials and API reference are available in the <a href='tutorials'>tutorials directory</a>. 
