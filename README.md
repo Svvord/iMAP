@@ -15,3 +15,7 @@
 #### 2. Installation
 
 The iMAP python package is available for pip install(`pip install imap`). The functions required for the stage I and II of iMAP could be imported from “imap.imap” and “imap.utils”, respectively.
+
+### Tutorials
+
+Tutorials and API reference are available in the <a href='tutorials'>. 
