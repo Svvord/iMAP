@@ -150,7 +150,7 @@ EC, ec_data = imap.stage1.iMAP_fast(adata, key="batch", n_epochs=200)
 output_results = imap.stage2.integrate_data(adata, ec_data, inc = False, n_epochs=300)
 ```
 
-#### 3. Visualizations
+### 2.3 Visualizations
 
 
 ```python
@@ -232,7 +232,7 @@ gplot(embedding_, np.array(adata.obs['batch']), np.array([celltype[item] for ite
     <img src="../pic/cellline_G_2.png" width="500"/>
 </center>
 
-#### 4. Interpretations
+### 2.4 Interpretations
 
 Here we use <a href='https://github.com/slundberg/shap'>SHAP</a> to explain the decoupling model. The `imap.stage1.explaix_importance` function takes `EC`, `adata`, `celltypes` as inputs to explain which genetic features the model learned are important for cell types. The `imap.stage1.contrast_explain_importance` function takes adata and platform annotation as inputs and calulate the different genetic feature between the platforms.
 
