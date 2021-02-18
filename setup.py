@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "imap",
-    version = "0.1.0",
+    version = "1.0.0",
     keywords = ("single-cell RNA-sequencing technologies", "neural network", "GAN", "batch removal"),
     description = "The integration of single-cell RNA-sequencing datasets from multiple sources is critical for deciphering cell-cell heterogeneities and interactions in complex biological systems. We present a novel unsupervised batch removal framework, called iMAP, based on two state-of-art deep generative models – autoencoders and generative adversarial networks.",
     long_description = long_description,
