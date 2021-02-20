@@ -83,9 +83,11 @@ At the time iMAP was being developed, scanpy was an older version that had no co
 
 ### 2.2 Batch effect removal by iMAP
 
-<font color='blue'>**Stage I - Key tunable hyperparameters:**</font>
+#### 2.2.1 Stage I :
 
 `imap.stage1.iMAP_fast(adata, key='batch', n_epochs=150, num_workers=0, lr=0.0005, b1=0.5, b2=0.999, latent_dim=256, n_critic=5, lambda_co=3, lambda_rc=1, seed=8)`
+
+**Stage I - Key tunable hyperparameters:**
 
 `adata`: Annotated data matrix(`scanpy.AnnData` class) to input the model. An AnnData object adata stores a data matrix adata.X(log-TPM-like single cell transcriptomics data), annotation of observations adata.obs(batch information must be contined) and variables adata.var as pd.DataFrame. Names of observations(cell names) and variables(gene names) can be accessed via adata.obs_names and adata.var_names, respectively.
 
@@ -107,9 +109,11 @@ At the time iMAP was being developed, scanpy was an older version that had no co
 
 `seed`: Random seed used to initialize the pseudo-random number generator. If seed is 'None', then random state will try to read data from /dev/urandom (or the Windows analogue) and so on according to the mechanism of the different random functions used in iMAP. Set to 8 here.
 
-<font color='blue'>**Stage II - Key tunable hyperparameters:**</font>
+#### 2.2.2 Stage II :
 
 `imap.stage2.integrate_data(data: sc.AnnData, cali_data: sc.AnnData, key='batch', n_epochs=150, inc=False, orders=None, metric='angular', k1=None, k2=None, n_batch=2, n_sample=3000, seed=8)`
+
+**Stage II - Key tunable hyperparameters:**
 
 `adata`: Same as Stage I.
 
@@ -133,13 +137,9 @@ At the time iMAP was being developed, scanpy was an older version that had no co
 
 `seed`: Same as Stage I
 
-
-
-
 **Stage I: `imap.stage1.iMAP_fast` will return `EC`(encoder for extracting celltype contents) and `ec_data`(celltype contents of input adata).**
 
 **Stage II: `imap.stage2.integrate_data` will return `output_results`(log-TPM-like single cell data aligned by iMAP).**
-
 
 
 ```python
@@ -234,7 +234,7 @@ gplot(embedding_, np.array(adata.obs['batch']), np.array([celltype[item] for ite
 
 ### 2.4 Interpretations
 
-Here we use <a href='https://github.com/slundberg/shap'>SHAP</a> to explain the decoupling model. The `imap.stage1.explaix_importance` function takes `EC`, `adata`, `celltypes` as inputs to explain which genetic features the model learned are important for cell types. The `imap.stage1.contrast_explain_importance` function takes adata and platform annotation as inputs and calulate the different genetic feature between the platforms.
+Here we use <a href='https://github.com/slundberg/shap'>SHAP</a> to explain the decoupling model. The `imap.stage1.explain_importance` function takes `EC`, `adata`, `celltypes` as inputs to explain which genetic features the model learned are important for cell types. The `imap.stage1.contrast_explain_importance` function takes adata and platform annotation as inputs and calulate the different genetic feature between the platforms.
 
 The results are saved in './' directory.
 
