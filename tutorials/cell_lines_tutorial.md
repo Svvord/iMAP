@@ -246,6 +246,6 @@ platform = np.array(adata.obs['batch'])
 
 
 ```python
-imap.explain_importance(EC, adata, celltypes, print_loss=True, n_epochs=400)
-imap.contrast_explain_importance(adata, platform, print_loss=True, n_epochs=400)
+imap.stage1.explain_importance(EC, adata, celltypes, print_loss=True, n_epochs=400)
+imap.stage1.contrast_explain_importance(adata, platform, print_loss=True, n_epochs=400)
 ```
