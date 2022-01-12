@@ -21,7 +21,7 @@ benchmark_idx = function(data, cell_type, batch, k = 20, k2 = 100, pos_thr = 1,
                          color_batch = NULL, 
                          color_cell_type = NULL, 
                          color_index = NULL, 
-                         point_size = 1){
+                         point_size = 1, require_consistency = FALSE){
     bench_list = list()
     
     falseRates = c()
@@ -67,7 +67,12 @@ benchmark_idx = function(data, cell_type, batch, k = 20, k2 = 100, pos_thr = 1,
         if(falseRates[i] < 0.5){
             k_2 = min(k2, tmp_c[cell_type[i]])
             NNs_ = a$getNNsByItem(i-1, k_2) + 1
-            NNs_c = cell_type[i]
+            if(require_consistency){
+                NNs_c=cell_type[NNs_]
+            }
+            else{
+                NNs_c=cell_type[i]
+            }
             NNs_i = NNs_c == cell_type[i]
             NNs_ = NNs_[NNs_i]
             k_2 = length(NNs_)
